@@ -1,11 +1,22 @@
+.navbar {
+    background-color: black !important;
+}
+
 .container-fluid a {
     width: 12%;
 }
-.container-fluid a img{
+
+.container-fluid a img {
     width: 100%;
     border-radius: 5px;
 }
 
-.nav-button a{
+.nav-button a {
     width: 100%;
+}
+
+@media only screen and (max-width: 680px) {
+    .container-fluid a {
+        width: 50%;
+    }
 }
