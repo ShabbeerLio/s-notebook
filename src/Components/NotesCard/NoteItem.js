@@ -9,7 +9,7 @@ const NoteItem = (props) => {
   const { note ,updateNote} = props;
 
   return (
-    <div className="col-md-3">
+    <div className="col-md-3" style={{color:"black"}}>
       <div className="card my-3">
         <div className="card-body">
           <div className="d-flex align-items-baseline ">
