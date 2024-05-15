@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom'
 
 const Signup = (props) => {
 
+    const host = "https://s-note-book.netlify.app/"
+
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
     let history = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { name, email, password } = credentials;
-        const response = await fetch("http://localhost:8000/api/auth/createuser", {
+        const response = await fetch(`${host}/api/auth/createuser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
