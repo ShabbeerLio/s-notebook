@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
 
-     const host = "https://s-note-book.netlify.app/"
+     const host = "https://s-note-book.netlify.app"
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useNavigate();
 
