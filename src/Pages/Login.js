@@ -4,7 +4,7 @@ import "./Home.css"
 
 const Login = (props) => {
 
-    const host = "http://localhost:8000"
+    const host = "https://s-notebook-backend.onrender.com"
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useNavigate();
 
