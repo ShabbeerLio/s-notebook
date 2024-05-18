@@ -18,7 +18,7 @@ const Login = (props) => {
             body: JSON.stringify({ email: credentials.email, password: credentials.password })
         });
         const json = await response.json()
-        console.log(json)
+        // console.log(json)
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken)
@@ -36,15 +36,15 @@ const Login = (props) => {
 
     return (
         <div className='container'>
-            <div class="login-box">
+            <div className="login-box">
                 <p>Login</p>
                 <form onSubmit={handleSubmit}>
-                    <div class="user-box">
+                    <div className="user-box">
                         <input type="email" value={credentials.email} onChange={onChange} name="email" id="email" required />
                         <label htmlFor="email" >Email</label>
                     </div>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                    <div class="user-box">
+                    <div className="user-box">
                         <input type="password" value={credentials.password} onChange={onChange} name="password" id="password" required />
                         <label htmlFor="password" >Password</label>
                     </div>
@@ -56,7 +56,7 @@ const Login = (props) => {
                         Log In
                     </button>
                 </form>
-                <p>Don't have an account? <Link to="/signup" class="a2">Sign up!</Link></p>
+                <p>Don't have an account? <Link to="/signup" className="a2">Sign up!</Link></p>
             </div>
 
         </div>

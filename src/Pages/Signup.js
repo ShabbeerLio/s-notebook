@@ -40,23 +40,23 @@ const Signup = (props) => {
 
     return (
         <div className='container'>
-            <div class="login-box">
+            <div className="login-box">
                 <p>Sign Up</p>
                 <form onSubmit={handleSubmit}>
-                    <div class="user-box">
+                    <div className="user-box">
                         <input type="text" id="name" name='name' onChange={onChange} required/>
                         <label htmlFor="name" >Name</label>
                     </div>
-                    <div class="user-box">
+                    <div className="user-box">
                         <input type="email" id="email" name='email' onChange={onChange} required />
                         <label htmlFor="email" >Email address</label>
                     </div>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                    <div class="user-box">
+                    <div className="user-box">
                         <input type="password" id="password" name='password' onChange={onChange} minLength={5} required />
                         <label htmlFor="password" >Password</label>
                     </div>
-                    <div class="user-box">
+                    <div className="user-box">
                         <input type="password" id="cpassword" name='cpassword' onChange={onChange} minLength={5} required />
                         <label htmlFor="cpassword" >Confirm Password</label>
                     </div>
@@ -68,7 +68,7 @@ const Signup = (props) => {
                         Sign Up
                     </button>
                 </form>
-                <p>Already have an account? <Link to="/login" class="a2">Log In</Link></p>
+                <p>Already have an account? <Link to="/login" className="a2">Log In</Link></p>
             </div>
 
         </div>

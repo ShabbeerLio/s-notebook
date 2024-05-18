@@ -3,6 +3,7 @@ import NoteContext from "../../Context/Notes/NoteContext";
 import NoteItem from "./NoteItem";
 import AddNote from "../AddNote/AddNote";
 import { useNavigate } from "react-router-dom";
+import "./NoteCard.css"
 
 const NotesCard = (props) => {
   const context = useContext(NoteContext);
@@ -46,7 +47,7 @@ const NotesCard = (props) => {
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
-  
+
 
   return (
     <>
@@ -70,8 +71,8 @@ const NotesCard = (props) => {
 
       >
         <div className="modal-dialog">
-          <div className="modal-content" style={{color:"white" , backgroundColor:"black" , border:"none"}}>
-            <div className="modal-header" style={{ borderBottom:"1px solid #3c3c3c"}}>
+          <div className="modal-content" style={{ color: "white", backgroundColor: "black", border: "none" }}>
+            <div className="modal-header" style={{ borderBottom: "1px solid #3c3c3c" }}>
               <h5 className="modal-title" id="exampleModalLabel" >
                 Edit Note
               </h5>
@@ -91,7 +92,7 @@ const NotesCard = (props) => {
                   <input
                     type="text"
                     className="form-control"
-                    style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
+                    style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                     id="etitle"
                     name="etitle"
                     aria-describedby="emailHelp"
@@ -108,7 +109,7 @@ const NotesCard = (props) => {
                   <input
                     type="text"
                     className="form-control"
-                    style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
+                    style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                     name="edescription"
                     id="edescription"
                     onChange={onChange}
@@ -124,7 +125,7 @@ const NotesCard = (props) => {
                   <input
                     type="text"
                     className="form-control"
-                    style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
+                    style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                     name="etag"
                     id="etag"
                     onChange={onChange}
@@ -134,21 +135,29 @@ const NotesCard = (props) => {
                 </div>
               </form>
             </div>
-            <div className="modal-footer" style={{ borderTop:"1px solid #3c3c3c"}}>
+            <div className="modal-footer" style={{display:"flex",flexWrap:"nowrap", borderTop: "1px solid #3c3c3c" }}>
               <button
                 ref={refClose}
                 type="button"
-                className="btn btn-secondary"
+                className="update-button"
                 data-bs-dismiss="modal"
               >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 Close
               </button>
               <button
                 disabled={note.etitle.length < 5 || note.edescription.length < 5}
                 onClick={handleClick}
                 type="button"
-                className="btn btn-primary"
+                className="update-button"
               >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 Update Note
               </button>
             </div>

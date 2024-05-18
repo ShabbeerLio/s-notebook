@@ -1,22 +1,23 @@
 import React, { useContext, useState } from 'react'
 import NoteContext from "../../Context/Notes/NoteContext";
+import "./AddNote.css"
 
 const AddNote = (props) => {
 
     const context = useContext(NoteContext);
-    const {addNote} = context;
+    const { addNote } = context;
 
-    const [note, setNote] = useState({title: "", description: "", tag: ""})
+    const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
-    const handleClick = (e)=>{
+    const handleClick = (e) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
-        setNote({title: "", description: "", tag: ""})
-        props.showAlert("Added successfully" , "success");
+        setNote({ title: "", description: "", tag: "" })
+        props.showAlert("Added successfully", "success");
     }
 
-    const onChange = (e)=>{
-        setNote({...note, [e.target.name]: e.target.value})
+    const onChange = (e) => {
+        setNote({ ...note, [e.target.name]: e.target.value })
     }
 
     return (
@@ -30,14 +31,14 @@ const AddNote = (props) => {
                     <input
                         type="text"
                         className="form-control"
-                        style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
+                        style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                         id="title"
                         name='title'
                         aria-describedby="emailHelp"
                         onChange={onChange}
                         minLength={5}
                         value={note.title}
-                    required
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -47,7 +48,7 @@ const AddNote = (props) => {
                     <input
                         type="text"
                         className="form-control"
-                        style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
+                        style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                         name='description'
                         id="description"
                         onChange={onChange}
@@ -63,7 +64,7 @@ const AddNote = (props) => {
                     <input
                         type="text"
                         className="form-control"
-                        style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
+                        style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                         name='tag'
                         id="tag"
                         onChange={onChange}
@@ -73,7 +74,11 @@ const AddNote = (props) => {
                     />
                 </div>
 
-                <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleClick}>
+                <button disabled={note.title.length < 5 || note.description.length < 5} type="submit" className="AddNote-button" onClick={handleClick}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                     Add Note
                 </button>
             </form>
