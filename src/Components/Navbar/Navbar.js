@@ -15,7 +15,6 @@ const Navbar = (props) => {
 
   // API
   const host = "https://s-notebook-backend.onrender.com";
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [userData, setUserData]=useState([null])
 
   useEffect(() => {
@@ -26,17 +25,13 @@ const Navbar = (props) => {
           "Content-Type": "application/json",
           "auth-token": localStorage.getItem("token"),
         },
-        body: JSON.stringify({
-          email: credentials.email,
-          password: credentials.password,
-        }),
+        body: JSON.stringify(),
       });
       const json = await response.json();
       setUserData(json);
       if (json.success) {
         // Save the auth token and redirect
         localStorage.setItem("token", json.authToken);
-        history.push("/");
       } 
     };
 
