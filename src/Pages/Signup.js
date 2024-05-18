@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import "./Home.css"
 
 const Signup = (props) => {
 
-    const host = "https://s-note-book.netlify.app"
+    const host = "http://localhost:8000"
 
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
     let history = useNavigate();
@@ -20,7 +21,7 @@ const Signup = (props) => {
         });
         const json = await response.json()
         console.log(json)
-        
+
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken)
@@ -39,26 +40,37 @@ const Signup = (props) => {
 
     return (
         <div className='container'>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" className="form-control" id="name" name='name' onChange={onChange} aria-describedby="emailHelp" />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" name='email' onChange={onChange} aria-describedby="emailHelp" />
+            <div class="login-box">
+                <p>Sign Up</p>
+                <form onSubmit={handleSubmit}>
+                    <div class="user-box">
+                        <input type="text" id="name" name='name' onChange={onChange} required/>
+                        <label htmlFor="name" >Name</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="email" id="email" name='email' onChange={onChange} required />
+                        <label htmlFor="email" >Email address</label>
+                    </div>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="password" name='password' onChange={onChange} minLength={5} required />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-                    <input type="password" className="form-control" id="cpassword" name='cpassword' onChange={onChange} minLength={5} required />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+                    <div class="user-box">
+                        <input type="password" id="password" name='password' onChange={onChange} minLength={5} required />
+                        <label htmlFor="password" >Password</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="password" id="cpassword" name='cpassword' onChange={onChange} minLength={5} required />
+                        <label htmlFor="cpassword" >Confirm Password</label>
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Sign Up
+                    </button>
+                </form>
+                <p>Already have an account? <Link to="/login" class="a2">Log In</Link></p>
+            </div>
+
         </div>
     )
 }

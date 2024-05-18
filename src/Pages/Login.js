@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import "./Home.css"
 
 const Login = (props) => {
 
-     const host = "https://s-note-book.netlify.app"
+    const host = "http://localhost:8000"
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useNavigate();
 
@@ -35,18 +36,29 @@ const Login = (props) => {
 
     return (
         <div className='container'>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} onChange={onChange} name="email" id="email" aria-describedby="emailHelp" />
+            <div class="login-box">
+                <p>Login</p>
+                <form onSubmit={handleSubmit}>
+                    <div class="user-box">
+                        <input type="email" value={credentials.email} onChange={onChange} name="email" id="email" required />
+                        <label htmlFor="email" >Email</label>
+                    </div>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+                    <div class="user-box">
+                        <input type="password" value={credentials.password} onChange={onChange} name="password" id="password" required />
+                        <label htmlFor="password" >Password</label>
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Log In
+                    </button>
+                </form>
+                <p>Don't have an account? <Link to="/signup" class="a2">Sign up!</Link></p>
+            </div>
+
         </div>
     )
 }

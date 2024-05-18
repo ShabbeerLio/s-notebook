@@ -30,6 +30,7 @@ const AddNote = (props) => {
                     <input
                         type="text"
                         className="form-control"
+                        style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
                         id="title"
                         name='title'
                         aria-describedby="emailHelp"
@@ -46,6 +47,7 @@ const AddNote = (props) => {
                     <input
                         type="text"
                         className="form-control"
+                        style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
                         name='description'
                         id="description"
                         onChange={onChange}
@@ -61,6 +63,7 @@ const AddNote = (props) => {
                     <input
                         type="text"
                         className="form-control"
+                        style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
                         name='tag'
                         id="tag"
                         onChange={onChange}

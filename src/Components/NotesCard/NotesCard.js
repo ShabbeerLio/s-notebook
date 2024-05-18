@@ -46,6 +46,7 @@ const NotesCard = (props) => {
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
+  
 
   return (
     <>
@@ -69,9 +70,9 @@ const NotesCard = (props) => {
 
       >
         <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
+          <div className="modal-content" style={{color:"white" , backgroundColor:"black" , border:"none"}}>
+            <div className="modal-header" style={{ borderBottom:"1px solid #3c3c3c"}}>
+              <h5 className="modal-title" id="exampleModalLabel" >
                 Edit Note
               </h5>
               <button
@@ -90,6 +91,7 @@ const NotesCard = (props) => {
                   <input
                     type="text"
                     className="form-control"
+                    style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
                     id="etitle"
                     name="etitle"
                     aria-describedby="emailHelp"
@@ -106,6 +108,7 @@ const NotesCard = (props) => {
                   <input
                     type="text"
                     className="form-control"
+                    style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
                     name="edescription"
                     id="edescription"
                     onChange={onChange}
@@ -121,6 +124,7 @@ const NotesCard = (props) => {
                   <input
                     type="text"
                     className="form-control"
+                    style={{color:"white" , backgroundColor:"#424242" , border:"none"}}
                     name="etag"
                     id="etag"
                     onChange={onChange}
@@ -130,7 +134,7 @@ const NotesCard = (props) => {
                 </div>
               </form>
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer" style={{ borderTop:"1px solid #3c3c3c"}}>
               <button
                 ref={refClose}
                 type="button"
