@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NoteContext from "../../Context/Notes/NoteContext";
 import "./AddNote.css"
 
@@ -20,6 +20,11 @@ const AddNote = (props) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
 
+   
+    const { mode } = props;
+
+    const inputClass = mode === "light" ? "input-light" : "input-dark";
+
     return (
         <div className="container my-3">
             <h2>Add a Notes</h2>
@@ -30,8 +35,7 @@ const AddNote = (props) => {
                     </label>
                     <input
                         type="text"
-                        className="form-control"
-                        style={{ color: "white", backgroundColor: "#424242", border: "none" }}
+                        className={`form-control ${inputClass}`}
                         id="title"
                         name='title'
                         aria-describedby="emailHelp"
@@ -47,8 +51,7 @@ const AddNote = (props) => {
                     </label>
                     <input
                         type="text"
-                        className="form-control"
-                        style={{ color: "white", backgroundColor: "#424242", border: "none" }}
+                        className={`form-control ${inputClass}`}
                         name='description'
                         id="description"
                         onChange={onChange}
@@ -63,12 +66,10 @@ const AddNote = (props) => {
                     </label>
                     <input
                         type="text"
-                        className="form-control"
-                        style={{ color: "white", backgroundColor: "#424242", border: "none" }}
+                        className={`form-control ${inputClass}`}
                         name='tag'
                         id="tag"
                         onChange={onChange}
-                        minLength={5}
                         value={note.tag}
                         required
                     />

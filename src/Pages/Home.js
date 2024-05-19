@@ -5,7 +5,7 @@ const Home = (props) => {
   const {showAlert} = props
   return (
     <div>
-      <NotesCard showAlert={showAlert}/>
+      <NotesCard showAlert={showAlert} mode={props.mode} toggleMode={props.toggleMode}/>
     </div>
   );
 };

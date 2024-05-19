@@ -1,4 +1,28 @@
 
+.input-light {
+  background-color: white;
+  border-color: #cfcfcf;
+  color: black;
+}
+
+.input-dark {
+  background-color: #424242;
+  border: none;
+  color: white;
+}
+.input-light:focus {
+  background-color: white;
+  color: black;
+  box-shadow: none;
+}
+
+.input-dark:focus {
+  background-color: #424242;
+  color: white;
+  box-shadow: none;
+}
+
+
 .AddNote-button{
     color: wheat;
     margin-bottom: 1rem;
@@ -10,14 +34,15 @@
     background-color: transparent;
     border: none;
     color: wheat;
-    background-color: #424242;
+    /* background-color: #424242; */
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
     margin-bottom: 1rem;
-    letter-spacing: 3px
+    letter-spacing: 3px;
+    /* border: 1px solid #feefd3; */
   }
   
   .AddNote-button:hover {

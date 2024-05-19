@@ -7,10 +7,12 @@ const NoteItem = (props) => {
   const context = useContext(NoteContext);
   const {deleteNote} = context;
   const { note ,updateNote} = props;
+  const { mode } = props;
+  const inputClass = mode === "light" ? "ninput-light" : "ninput-dark";
 
   return (
     <div className="col-md-3" style={{color:"black"}}>
-      <div className="card my-3 " style={{backgroundColor:"#424242" , color:"white"}}>
+      <div className={`card my-3  ${inputClass}`}  >
         <div className="card-body">
           <div className="d-flex align-items-baseline justify-content-between">
             <h5 className="card-title">{note.title}</h5>

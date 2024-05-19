@@ -38,9 +38,14 @@ const Navbar = (props) => {
     fetchData();
   }, []);
 
+  const { mode } = props;
+
+  const inputClass = mode === "light" ? "hinput-light" : "hinput-dark";
+  const uinputClass = mode === "light" ? "uinput-light" : "uinput-dark";
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav  className={`navbar navbar-expand-lg navbar-${props.mode} ${inputClass}`}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="" />
@@ -85,9 +90,9 @@ const Navbar = (props) => {
                 </Link>
               </li>
             </ul>
-            <div className="nav-switch">
+            <div className="nav-switch" >
               <label className="theme-switch">
-                <input type="checkbox" className="theme-switch__checkbox" />
+                <input type="checkbox" className="theme-switch__checkbox" onClick={()=>{props.toggleMode(null)}}/>
                 <div className="theme-switch__container">
                   <div className="theme-switch__clouds"></div>
                   <div className="theme-switch__stars-container">
@@ -126,7 +131,7 @@ const Navbar = (props) => {
               <div className="nav-user">
                 <div className="wrapper">
                   <input type="checkbox" />
-                  <div className="btn">
+                  <div className={`btn ${uinputClass}`}>
                     <FaRegUser />
                   </div>
                   <div className="tooltip">

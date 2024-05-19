@@ -10,14 +10,15 @@
     background-color: transparent;
     border: none;
     color: wheat;
-    background-color: #424242;
+    /* background-color: #424242; */
     font-size: 14px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
     margin-bottom: 1rem;
-    letter-spacing: 2px
+    letter-spacing: 2px;
+    /* border: 1px solid #feefd3; */
   }
   
   .update-button:hover {
@@ -108,4 +109,28 @@
     50%,100% {
       bottom: 100%;
     }
+  }
+
+  .einput-light {
+    background-color: white;
+    border-color: black;
+    color: black;
+  }
+  
+  .einput-dark {
+    background-color: black;
+    border: none;
+    color: white;
+  }
+  /* NoteItem */
+  .ninput-light {
+    background-color: white;
+    border-color: black;
+    color: black;
+  }
+  
+  .ninput-dark {
+    background-color: #424242;
+    border: none;
+    color: white;
   }

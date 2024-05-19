@@ -1,5 +1,12 @@
-.navbar {
-    background-color: black !important;
+
+.hinput-light {
+  background-color: #f9f9f9;
+  color: black;
+}
+
+.hinput-dark {
+  background-color: black;
+  color: white;
 }
 
 .container-fluid a {
@@ -304,13 +311,22 @@
     align-items: center;
   }
   .wrapper .btn svg{
-    color: white;
+    /* color: white; */
     position: relative;
     font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+
+.uinput-light svg{
+  color: black;
+}
+
+.uinput-dark svg{
+  color: white;
+}
 
   .wrapper .tooltip {
     border-radius: 8px;

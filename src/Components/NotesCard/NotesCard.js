@@ -48,10 +48,15 @@ const NotesCard = (props) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
 
+  const { mode } = props;
+
+  const inputClass = mode === "light" ? "input-light" : "input-dark";
+  const einputClass = mode === "light" ? "einput-light" : "einput-dark";
+
 
   return (
     <>
-      <AddNote showAlert={props.showAlert} />
+      <AddNote showAlert={props.showAlert} mode={props.mode} toggleMode={props.toggleMode}/>
       <button
         type="button"
         className="btn btn-primary d-none"
@@ -71,7 +76,7 @@ const NotesCard = (props) => {
 
       >
         <div className="modal-dialog">
-          <div className="modal-content" style={{ color: "white", backgroundColor: "black", border: "none" }}>
+          <div className={`modal-content ${einputClass}`} >
             <div className="modal-header" style={{ borderBottom: "1px solid #3c3c3c" }}>
               <h5 className="modal-title" id="exampleModalLabel" >
                 Edit Note
@@ -91,8 +96,8 @@ const NotesCard = (props) => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
-                    style={{ color: "white", backgroundColor: "#424242", border: "none" }}
+                    className={`form-control ${inputClass}`}
+                    // style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                     id="etitle"
                     name="etitle"
                     aria-describedby="emailHelp"
@@ -108,8 +113,8 @@ const NotesCard = (props) => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
-                    style={{ color: "white", backgroundColor: "#424242", border: "none" }}
+                    className={`form-control ${inputClass}`}
+                    // style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                     name="edescription"
                     id="edescription"
                     onChange={onChange}
@@ -124,8 +129,8 @@ const NotesCard = (props) => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
-                    style={{ color: "white", backgroundColor: "#424242", border: "none" }}
+                    className={`form-control ${inputClass}`}
+                    // style={{ color: "white", backgroundColor: "#424242", border: "none" }}
                     name="etag"
                     id="etag"
                     onChange={onChange}
@@ -170,7 +175,7 @@ const NotesCard = (props) => {
           {notes.length === 0 && "No notes todisplay"}
         </div>
         {notes.map((note) => {
-          return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
+          return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} mode={props.mode} toggleMode={props.toggleMode} />
         })}
       </div>
     </>
