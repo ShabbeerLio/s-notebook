@@ -79,7 +79,7 @@ const About = () => {
         professional endeavors
       </p>
       <h2>Members</h2>
-      <div className="container about-members d-flex justify-content-between">
+      <div className="container about-members d-flex justify-content-between flex-wrap">
         <div className="members-card">
           <div className="card-imag">
             <img src={m1} alt="" />
